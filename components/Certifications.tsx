@@ -1,27 +1,51 @@
-
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { CERTIFICATIONS } from '../constants';
 
 export const Certifications: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [showLeftBtn, setShowLeftBtn] = useState(false);
-  const [showRightBtn, setShowRightBtn] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const checkScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setShowLeftBtn(scrollLeft > 0);
-    // Use a small buffer (10px) to handle fractional pixels
-    setShowRightBtn(scrollLeft < scrollWidth - clientWidth - 10);
-  };
-
-  const scroll = (direction: 'left' | 'right') => {
+  // Function to handle scrolling with loop logic
+  const scroll = useCallback((direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = direction === 'left' ? -380 : 380;
-      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const { scrollLeft, scrollWidth, clientWidth } = current;
+      
+      // Calculate scroll amount (Card width approx 360 + gap 24)
+      const scrollAmount = 384; 
+      
+      if (direction === 'left') {
+        if (scrollLeft <= 10) {
+          // If at start, loop to end
+          current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+        } else {
+          current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      } else {
+        // If at end (with small buffer), loop to start
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      }
     }
-  };
+  }, []);
+
+  // Auto-play effect
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+
+    if (!isPaused) {
+      interval = setInterval(() => {
+        scroll('right');
+      }, 5000);
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isPaused, scroll]);
 
   return (
     <section id="certifications" className="py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-transparent border-t border-gray-100 dark:border-white/5 transition-colors duration-300 relative">
@@ -36,15 +60,13 @@ export const Certifications: React.FC = () => {
           <div className="hidden md:flex gap-2">
             <button 
               onClick={() => scroll('left')}
-              disabled={!showLeftBtn}
-              className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${!showLeftBtn ? 'opacity-30 cursor-not-allowed border-gray-200 text-gray-400' : 'border-gray-300 dark:border-white/20 hover:bg-brand-accent hover:text-white dark:hover:bg-nyc-cyan dark:hover:text-black hover:border-transparent cursor-pointer text-gray-600 dark:text-white'}`}
+              className="w-10 h-10 rounded-full flex items-center justify-center border transition-all border-gray-300 dark:border-white/20 hover:bg-brand-accent hover:text-white dark:hover:bg-nyc-cyan dark:hover:text-black hover:border-transparent cursor-pointer text-gray-600 dark:text-white"
             >
               <i className="fa-solid fa-chevron-left"></i>
             </button>
             <button 
               onClick={() => scroll('right')}
-              disabled={!showRightBtn}
-              className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${!showRightBtn ? 'opacity-30 cursor-not-allowed border-gray-200 text-gray-400' : 'border-gray-300 dark:border-white/20 hover:bg-brand-accent hover:text-white dark:hover:bg-nyc-cyan dark:hover:text-black hover:border-transparent cursor-pointer text-gray-600 dark:text-white'}`}
+              className="w-10 h-10 rounded-full flex items-center justify-center border transition-all border-gray-300 dark:border-white/20 hover:bg-brand-accent hover:text-white dark:hover:bg-nyc-cyan dark:hover:text-black hover:border-transparent cursor-pointer text-gray-600 dark:text-white"
             >
               <i className="fa-solid fa-chevron-right"></i>
             </button>
@@ -54,7 +76,8 @@ export const Certifications: React.FC = () => {
         {/* Carousel Container */}
         <div 
           ref={scrollRef}
-          onScroll={checkScroll}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0"
         >
           {CERTIFICATIONS.map((cert) => (

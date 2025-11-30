@@ -14,7 +14,10 @@ export const Skills: React.FC = () => {
           {SKILLS.map((cat, idx) => (
             <div key={idx} className="bg-gray-50 dark:bg-white/5 p-8 border border-gray-100 dark:border-white/10 rounded-xl hover:border-brand-accent/30 dark:hover:border-nyc-cyan/50 hover:shadow-lg dark:hover:shadow-[0_0_30px_rgba(0,243,255,0.1)] transition-all duration-300 backdrop-blur-md">
               <h3 className="text-xl font-bold mb-6 pb-4 border-b border-gray-200 dark:border-white/10 flex items-center justify-between text-gray-900 dark:text-white">
-                {cat.category}
+                <span className="flex items-center gap-3">
+                  <i className={`${cat.icon} text-brand-accent dark:text-nyc-cyan text-xl`}></i>
+                  {cat.category}
+                </span>
                 <span className="text-xs text-brand-accent dark:text-nyc-cyan font-mono bg-blue-50 dark:bg-nyc-cyan/10 px-2 py-1 rounded border dark:border-nyc-cyan/20">
                   {cat.skills.length}
                 </span>
@@ -32,6 +35,7 @@ export const Skills: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
+      </div>
+    </section>
   );
 };

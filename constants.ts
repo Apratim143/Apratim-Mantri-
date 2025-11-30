@@ -14,22 +14,27 @@ export const PERSONAL_INFO: PersonalInfo = {
 export const SKILLS: SkillCategory[] = [
   {
     category: "Digital Marketing",
+    icon: "fa-solid fa-bullhorn",
     skills: ["SEO (On-page, Off-page, Technical)", "PPC", "Content Marketing", "Social Media Marketing"]
   },
   {
     category: "Advertising Platforms",
+    icon: "fa-solid fa-rectangle-ad",
     skills: ["Meta Ads", "LinkedIn Ads", "Google Ads"]
   },
   {
     category: "Analytics Tools",
+    icon: "fa-solid fa-chart-line",
     skills: ["Ahrefs", "SEMrush", "Moz", "SpyFu", "Google Analytics", "Google Tag Manager"]
   },
   {
     category: "Design Tools",
+    icon: "fa-solid fa-pen-nib",
     skills: ["Canva", "VistaCreate", "Adobe Spark", "Veed"]
   },
   {
     category: "Web & CMS",
+    icon: "fa-solid fa-laptop-code",
     skills: ["WordPress", "Blogger", "Odoo", "Wix"]
   }
 ];

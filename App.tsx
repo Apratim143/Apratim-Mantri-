@@ -52,7 +52,7 @@ const App: React.FC = () => {
     { name: 'Technical Expertise', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Pro Bono Work', href: '#projects' },
-    { name: 'Certifications', href: '#certifications' },
+    { name: 'Certifications & Achievements', href: '#certifications' },
     { name: 'Education', href: '#education' },
   ];
 

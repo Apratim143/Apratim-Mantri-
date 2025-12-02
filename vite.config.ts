@@ -8,7 +8,8 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       // This ensures process.env.API_KEY in your code works after build
-      'process.env.API_KEY': JSON.stringify(env.API_KEY || process.env.API_KEY)
+      // We check env.API_KEY (standard), env.VITE_API_KEY (Vite convention), and process.env.API_KEY (system)
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || env.VITE_API_KEY || process.env.API_KEY)
     }
   };
 });

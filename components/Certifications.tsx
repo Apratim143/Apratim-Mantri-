@@ -52,7 +52,7 @@ export const Certifications: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-12 flex items-end justify-between">
           <div>
-             <h2 className="text-4xl font-serif font-medium mb-4 text-gray-900 dark:text-white">Certifications</h2>
+             <h2 className="text-4xl font-serif font-medium mb-4 text-gray-900 dark:text-white">Certifications & Achievements</h2>
              <div className="h-1.5 w-24 bg-brand-accent dark:bg-nyc-cyan shadow-[0_0_10px_rgba(37,99,235,0.5)] dark:shadow-[0_0_15px_rgba(0,243,255,0.6)]"></div>
           </div>
           

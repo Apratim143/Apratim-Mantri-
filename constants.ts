@@ -139,6 +139,14 @@ export const EDUCATION: Education[] = [
 export const CERTIFICATIONS: Certification[] = [
   // 2025
   {
+    id: "linkedin-marketing-strategy",
+    title: "LinkedIn Marketing Strategy Certification",
+    issuer: "LinkedIn",
+    date: "2025",
+    image: "https://placehold.co/600x400/0077B5/white?text=LinkedIn+Strategy",
+    credentialLink: "https://drive.google.com/file/d/1al2kgVRUd18nGdtuQZQbJDu4SgxrWvmP/view?usp=drive_link"
+  },
+  {
     id: "mica-upgrad",
     title: "Digital Marketing and Communication",
     issuer: "MICA | upGrad",

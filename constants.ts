@@ -9,7 +9,7 @@ export const PERSONAL_INFO: PersonalInfo = {
     email: "apratim.workspace@gmail.com",
     linkedin: "Apratim-Mantri"
   },
-  summary: "Results-driven Digital Marketer specializing in SEO, PPC, Social Media Marketing, and Content Marketing. I have managed multi-brand campaigns, optimized websites, and executed high-performing ads across Google, Meta, and LinkedIn. With analytical, design, and web development skills, I can combine creativity and strategy to deliver measurable growth."
+  summary: "Results-driven Digital Marketer specializing in SEO, PPC, Social Media Marketing, and Content Marketing.I have managed multi-brand campaigns, optimized websites, and executed high-performing ads across Google, Meta, and LinkedIn. With analytical, design, and web development skills, I can combine creativity and strategy to deliver measurable growth."
 };
 
 export const SKILLS: SkillCategory[] = [

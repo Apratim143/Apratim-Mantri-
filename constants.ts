@@ -26,7 +26,7 @@ export const SKILLS: SkillCategory[] = [
   {
     category: "Analytics Tools",
     icon: "fa-solid fa-chart-line",
-    skills: ["Ahrefs", "SEMrush", "Moz", "SpyFu", "Google Analytics", "Google Tag Manager"]
+    skills: ["Ahrefs", "SEMrush", "Moz", "SpyFu", "Google Analytics", "Google Tag Manager", "YouTube Creator Studio"]
   },
   {
     category: "Design Tools",
@@ -37,6 +37,11 @@ export const SKILLS: SkillCategory[] = [
     category: "Web & CMS",
     icon: "fa-solid fa-laptop-code",
     skills: ["WordPress", "Blogger", "Odoo", "Wix"]
+  },
+  {
+    category: "AI Tools",
+    icon: "fa-solid fa-robot",
+    skills: ["ChatGPT", "Claude", "Copilot"]
   }
 ];
 

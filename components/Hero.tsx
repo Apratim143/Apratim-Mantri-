@@ -120,7 +120,8 @@ export const Hero: React.FC = () => {
                {!imgError ? (
                   <img 
                     src={PROFILE_IMAGE_URL}
-                    alt="Apratim Mantri"
+                    alt="Apratim Mantri – Digital Marketer and Performance Marketing Specialist"
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 mix-blend-multiply dark:mix-blend-normal"
                     onError={() => setImgError(true)}
                   />

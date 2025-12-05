@@ -52,7 +52,7 @@ export const AIChat: React.FC = () => {
           {/* Header */}
           <div className="bg-brand-black dark:bg-black p-4 flex justify-between items-center text-white border-b border-gray-800 dark:border-white/10">
             <div className="flex items-center gap-2">
-              <i className="fa-solid fa-robot text-blue-400 dark:text-nyc-cyan text-xl"></i>
+              <i className="fa-solid fa-robot text-blue-400 dark:text-blue-400 text-xl"></i>
               <div>
                 <h3 className="font-semibold text-sm">Ask AI about Apratim</h3>
                 <p className="text-xs text-gray-400">Powered by Gemini</p>
@@ -69,7 +69,7 @@ export const AIChat: React.FC = () => {
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[85%] rounded-2xl p-3 text-sm leading-relaxed ${
                   msg.role === 'user' 
-                    ? 'bg-blue-600 dark:bg-nyc-cyan dark:text-black text-white rounded-tr-none' 
+                    ? 'bg-blue-600 dark:bg-blue-600 dark:text-white text-white rounded-tr-none' 
                     : 'bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-200 rounded-tl-none shadow-sm'
                 }`}>
                   {msg.text}
@@ -95,12 +95,12 @@ export const AIChat: React.FC = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder="Ask about Apratim..."
-                className="w-full pl-4 pr-12 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-nyc-cyan/20 focus:border-blue-500 dark:focus:border-nyc-cyan transition-all text-sm text-gray-900 dark:text-white placeholder-gray-500"
+                className="w-full pl-4 pr-12 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-500 transition-all text-sm text-gray-900 dark:text-white placeholder-gray-500"
               />
               <button 
                 onClick={handleSend}
                 disabled={isLoading || !inputValue.trim()}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-blue-600 dark:bg-nyc-cyan text-white dark:text-black rounded-lg hover:bg-blue-700 dark:hover:bg-nyc-cyan/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-blue-600 dark:bg-blue-600 text-white dark:text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <i className="fa-solid fa-paper-plane"></i>
               </button>
@@ -114,15 +114,15 @@ export const AIChat: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className={`group relative rounded-full shadow-lg transition-transform duration-300 hover:scale-105
           ${isOpen ? 'bg-gray-800' : 'bg-black hover:bg-blue-600'}
-          dark:bg-gradient-to-r dark:from-nyc-cyan dark:to-nyc-purple dark:p-[2px] dark:hover:bg-gradient-to-r
+          dark:bg-gradient-to-r dark:from-blue-500 dark:to-blue-700 dark:p-[2px] dark:hover:bg-gradient-to-r
         `}
       >
         <div className={`flex items-center gap-2 px-5 py-3 rounded-full
           ${/* Inherit background in light mode (transparent), force black in dark mode to show gradient border */ ''}
           dark:bg-black text-white w-full h-full
         `}>
-          {isOpen ? <i className="fa-solid fa-xmark text-xl"></i> : <i className="fa-regular fa-comment-dots text-xl dark:text-nyc-cyan"></i>}
-          <span className="font-medium text-sm dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-nyc-cyan dark:to-nyc-purple">
+          {isOpen ? <i className="fa-solid fa-xmark text-xl"></i> : <i className="fa-regular fa-comment-dots text-xl dark:text-blue-400"></i>}
+          <span className="font-medium text-sm dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-600">
             {isOpen ? 'Close Chat' : 'Ask AI'}
           </span>
         </div>
